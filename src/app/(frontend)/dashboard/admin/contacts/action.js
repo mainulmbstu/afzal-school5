@@ -1,0 +1,68 @@
+"use server";
+
+import { cacheLife, cacheTag, revalidatePath, updateTag } from "next/cache";
+import dbConnect from "@/lib/helpers/dbConnect";
+import { getCookieValue } from "@/lib/helpers/getCookieValue";
+import { getErrorMessage } from "@/lib/helpers/getErrorMessage";
+import { getTokenData } from "@/lib/helpers/getTokenData";
+import { ContactModel, ContactReplyModel } from "@/lib/models/ContactModel";
+
+//===========================================================
+export const getAllAction = async (keyword, page = 1, perPage) => {
+	"use cache";
+	cacheLife("days");
+	cacheTag("contacts");
+	const skip = (page - 1) * perPage;
+	const editKey = keyword === "unread" ? "" : keyword;
+	try {
+		await dbConnect();
+		const total = await ContactModel.find({
+			email: { $regex: editKey, $options: "i" },
+		});
+
+		const list = await ContactModel.find({
+			email: { $regex: editKey, $options: "i" },
+		})
+			.skip(skip)
+			.limit(perPage)
+			.sort({ createdAt: -1 });
+		const unread =
+			list?.length && list.filter((item) => item?.replies?.length === 0);
+		return {
+			list:
+				keyword === "unread" ? JSON.stringify(unread) : JSON.stringify(list),
+			total: keyword === "unread" ? unread?.length : total?.length,
+		};
+	} catch (error) {
+		console.log(error);
+		return { message: await getErrorMessage(error) };
+	}
+};
+
+//=====================================
+export const replyAction = async (cid, formData) => {
+	const reply = formData.get("reply");
+	const userInfo = await getTokenData(await getCookieValue("token"));
+	try {
+		await dbConnect();
+		const findmsg = await ContactModel.findById(cid);
+		await ContactReplyModel.create({
+			email: findmsg?.email,
+			reply,
+			msgId: findmsg?._id,
+			user: userInfo?._id,
+		});
+		const destructure = [...findmsg.replies];
+		findmsg.replies = [
+			...destructure,
+			{ userName: userInfo?.name, msg: reply, date: Date.now() },
+		];
+		await findmsg.save();
+		// revalidatePath("/", "layout");
+		updateTag("contacts");
+		return { success: true, message: "Replied successfully" };
+	} catch (error) {
+		console.log(error);
+		return { message: await getErrorMessage(error) };
+	}
+};

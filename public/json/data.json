@@ -1,0 +1,32 @@
+[
+	{
+		"id": 1,
+		"name": "Name",
+		"email": "name@gmail.com",
+		"designation": "Adviser",
+		"link": "adviser",
+		"image": "/schl1.jpg",
+		"greeting": "Dear Students, Faculty, Staff, and Esteemed Partners",
+		"speech": "As we embark on the age of Artificial Intelligence, Milestone College strives to empower learners to work alongside intelligent machines, think critically beyond algorithms, and shape a future where technology calibrates humanity rather than defines it. Standing at the helm of all affairs, I feel a strong sense of responsibility to prepare the learners for a rapidly evolving, interconnected world, while remaining committed to accessible, flexible, and affordable education.\n \n As we embark on the age of Artificial Intelligence, Milestone College strives to empower learners to work alongside intelligent machines, think critically beyond algorithms, and shape a future where technology calibrates humanity rather than defines it. Standing at the helm of all affairs, I feel a strong sense of responsibility to prepare the learners for a rapidly evolving, interconnected world, while remaining committed to accessible, flexible, and affordable education."
+	},
+	{
+		"id": 2,
+		"name": "Afzal Hosen",
+		"email": "afzal@gmail.com",
+		"designation": "Director",
+		"link": "director",
+		"image": "/afzal.jpeg",
+		"greeting": "Dear Students, Faculty, Staff, and Esteemed Partners",
+		"speech": "As we embark on the age of Artificial Intelligence, Milestone College strives to empower learners to work alongside intelligent machines, think critically beyond algorithms, and shape a future where technology calibrates humanity rather than defines it. Standing at the helm of all affairs, I feel a strong sense of responsibility to prepare the learners for a rapidly evolving, interconnected world, while remaining committed to accessible, flexible, and affordable education.\n \n As we embark on the age of Artificial Intelligence, Milestone College strives to empower learners to work alongside intelligent machines, think critically beyond algorithms, and shape a future where technology calibrates humanity rather than defines it. Standing at the helm of all affairs, I feel a strong sense of responsibility to prepare the learners for a rapidly evolving, interconnected world, while remaining committed to accessible, flexible, and affordable education."
+	},
+	{
+		"id": 3,
+		"name": "Sumi Akter",
+		"email": "sumi@gmail.com",
+		"designation": "Assistant Director",
+		"link": "assistant-director",
+		"image": "/dummy.jpeg",
+		"greeting": "Dear Students, Faculty, Staff, and Esteemed Partners",
+		"speech": "As we embark on the age of Artificial Intelligence, Milestone College strives to empower learners to work alongside intelligent machines, think critically beyond algorithms, and shape a future where technology calibrates humanity rather than defines it. Standing at the helm of all affairs, I feel a strong sense of responsibility to prepare the learners for a rapidly evolving, interconnected world, while remaining committed to accessible, flexible, and affordable education.\n \n As we embark on the age of Artificial Intelligence, Milestone College strives to empower learners to work alongside intelligent machines, think critically beyond algorithms, and shape a future where technology calibrates humanity rather than defines it. Standing at the helm of all affairs, I feel a strong sense of responsibility to prepare the learners for a rapidly evolving, interconnected world, while remaining committed to accessible, flexible, and affordable education."
+	}
+]
